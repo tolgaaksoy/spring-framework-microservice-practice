@@ -22,6 +22,8 @@
 
     <properties>
         <java.version>17</java.version>
+        <org.springdoc.openapi.version>1.6.8</org.springdoc.openapi.version>
+        <org.springdoc.openapi.data-rest.version>1.6.8</org.springdoc.openapi.data-rest.version>
     </properties>
 
     <dependencies>
@@ -42,6 +44,17 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${org.springdoc.openapi.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-data-rest</artifactId>
+            <version>${org.springdoc.openapi.data-rest.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
