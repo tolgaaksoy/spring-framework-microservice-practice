@@ -1,14 +1,15 @@
 package com.tolgaaksoy.inventoryservice.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import jakarta.persistence.Table;
 
-@Table(name = "inventory")
+@Entity(name = "inventory")
 @Getter
 @Setter
 @Builder
@@ -16,10 +17,11 @@ import jakarta.persistence.Table;
 @AllArgsConstructor
 public class Inventory {
 
-  private Long id;
-  private String skuCode;
-  private Integer stock;
-  private Integer reservedStock;
-  private Integer availableStock;
+    @Id
+    private Long id;
+    private String skuCode;
+    private Integer stock;
+    private Integer reservedStock;
+    private Integer availableStock;
 
 }
