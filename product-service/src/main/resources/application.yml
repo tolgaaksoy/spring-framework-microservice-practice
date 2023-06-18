@@ -8,3 +8,12 @@ spring:
       host: localhost
       port: 27017
       database: product_service_db
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /api-docs/swagger-ui.html
+    tagsSorter: alpha
