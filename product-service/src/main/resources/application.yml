@@ -1,8 +1,10 @@
+server:
+  port: 8083
 spring:
-    application:
-        name: product-service
-    data:
-        mongodb:
-            host: localhost
-            port: 27017
-            database: product-service-db
+  application:
+    name: product-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: product_service_db
