@@ -11,11 +11,15 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class InventoryServiceImpl implements InventoryService {
 
-  private final InventoryRepository inventoryRepository;
+    private final InventoryRepository inventoryRepository;
 
-  public InventoryServiceImpl(InventoryRepository inventoryRepository) {
-    this.inventoryRepository = inventoryRepository;
-  }
+    public InventoryServiceImpl(InventoryRepository inventoryRepository) {
+        this.inventoryRepository = inventoryRepository;
+    }
 
+    @Override
+    public Integer getQuantity(String skuCode) {
+        return inventoryRepository.countBySkuCode(skuCode);
+    }
 
 }
