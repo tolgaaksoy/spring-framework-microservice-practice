@@ -19,11 +19,12 @@ import java.util.UUID;
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
 
-    public OrderServiceImpl(OrderRepository orderRepository, WebClient webClient) {
+    public OrderServiceImpl(OrderRepository orderRepository, WebClient.Builder webClientBuilder) {
         this.orderRepository = orderRepository;
-        this.webClient = webClient;
+        this.webClientBuilder = webClientBuilder;
+
     }
 
     @Override
@@ -53,8 +54,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private boolean checkStock(OrderLineItemDto orderLineItemDto) {
-        Integer stock = webClient.get()
-                .uri("http://localhost:8082/api/inventory/quantitu/{skuCode}", orderLineItemDto.getSkuCode())
+        Integer stock = webClientBuilder.build().get()
+                .uri("http://inventory-service/api/inventory/quantity/{skuCode}", orderLineItemDto.getSkuCode())
                 .retrieve()
                 .bodyToMono(Integer.class)
                 .block();
